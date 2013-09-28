@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFL Draft</title>
+  <!-- media query meta tag(s) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bookmark icon -->
+  <%= favicon_link_tag "favicon.ico" %>
+  <!-- stylesheets -->
+  <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Roboto:100,400,700" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <!-- javascripts -->
+  <%= javascript_include_tag "application" %>
+  <!-- page specific javascript -->
+  <%= yield :head %>
+  <%= csrf_meta_tags %>
+  </head>
+<body>
+
+<!-- application navbar -->
+<div class="header">
+  <%= render 'shared/nav' %>
+</div>
+
+<!-- main application container -->
+<div class="application">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+        <%= yield %>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,67 @@
+$font: 'Roboto', 'Segoe UI', Verdana, Helvetica, sans-serif;
+$white: #FFFFFF;
+$black: #000000;
+
+html{
+    font-weight: 400;
+    font-family: $font;
+}
+
+body {
+  font-size: 1.25em;
+  padding-top: 4.375em;
+}
+
+h1, h2, h3 {
+    font-weight: 100;
+    line-height: 0.75;
+}
+
+/* overriding bootstrap hover */
+a.sign-in-link:hover, a.sign-in-link:focus {
+    background: $white !important;
+    color: $black !important;
+    text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.field_with_errors {
+  width: 40.00em;
+}
+
+div#error_explanation {
+  width: 100%;
+}
+
+p.indent {
+    font-size:   1.0em;
+    font-weight: 400;
+    text-indent: 0.626em;
+}
+
+a.brand-link {
+  font-weight: 100;
+  font-family: $font;
+}
+
+div.span-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.width-restrained {
+  max-width: 40.000em;
+}
+
+div.line-break {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+    border-top: 1px solid #838F9F;
+}
+
+
