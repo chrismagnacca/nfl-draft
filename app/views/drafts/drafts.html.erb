@@ -1,0 +1,28 @@
+<div class="row-fluid">
+  <div class="span12 div-center text-center width-restrained">
+    <h1>Draft</h1>
+    <br />
+    <table class='draft-table'>
+      <thead>
+        <tr>
+          <th>Team Name</th>
+          <th>Pick</th>
+          <th>Draft Round</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @drafts.each do |draft| %>
+        <tr>
+          <td><%= draft.team.name %></td>
+          <td><%= draft.pick %></td>
+          <td><%= draft.round %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br />
+  </div>
+</div>
+
+

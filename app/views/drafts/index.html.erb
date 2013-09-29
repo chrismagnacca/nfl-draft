@@ -1,27 +1,32 @@
 <div class="row-fluid">
-  <div class="span12 span-center text-center width-restrained">
-    <h1>Draft</h1>
+  <div class="span12 div-center text-center width-restrained">
+    <% if not @draft_over %>
+    <h1>NFL Draft</h1>
     <br />
-    <table class='draft-table'>
-      <thead>
-        <tr>
-          <th>Team Name</th>
-          <th>Pick</th>
-          <th>Draft Round</th>
-        </tr>
-      </thead>
-
-      <tbody>
-      <% @drafts.each do |draft| %>
-        <tr>
-          <td><%= draft.team_name %></td>
-          <td><%= draft.pick %></td>
-          <td><%= draft.round %></td>
-        </tr>
+    <div class='line-break'></div>
+    <h3>Current Team: <%= @draft.team.name  %></h3>
+    <h3>Pick Number: <%= @draft.pick  %></h3>
+    <br />
+    <% if not @drafted.empty? %>
+    <div class='line-break'></div>
+    <h3>Previous Picks</h3>
+      <%= @drafted.each do |draft| %>
+        <h4><%= draft.team.name %></h4>
+        <h4><%= draft.player.name %> </h4>
+        <h4><%= draft.player.position %></h4>
       <% end %>
-      </tbody>
-    </table>
+    <% end %>
     <br />
+    <div class='line-break'></div>
+    <h3>Upcoming Pick</h3>
+    <h4><%= @next.team.name %></h4>
+    <br />
+  <div class='div-center'>
+    <%= button_to "Start Draft", draft_path(@draft), class: 'btn btn-primary', method: :get %>
+  </div>
+  <% else %>
+    <h3>The Draft is Over!</h3>
+  <% end %>
   </div>
 </div>
 

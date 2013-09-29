@@ -7,7 +7,7 @@ class Draft < ActiveRecord::Base
   end
 
   def team
-    Team.where(id: self.team_id)
+    Team.where(id: self.team_id).first
   end
 
   def self.current
@@ -15,7 +15,7 @@ class Draft < ActiveRecord::Base
   end
 
   def self.next
-    Draft.where(pick: Draft.current.pick + 1)
+    Draft.where(pick: Draft.current.pick + 1).first
   end
 
   def self.previous
@@ -25,7 +25,7 @@ class Draft < ActiveRecord::Base
   end
 
   def self.drafted
-    Draft.all(executed: true)[0...3]
+    Draft.where(executed: true)[0...3]
   end
 
   def self.results

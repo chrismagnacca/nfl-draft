@@ -1,0 +1,39 @@
+<div class="row-fluid">
+  <div class="span12 div-center text-center width-restrained">
+    <h1>Draft</h1>
+    <br />
+    <div class='line-break'></div>
+    <h3>Round: <%= @draft.round %></h3>
+    <h3>Pick: <%= @draft.pick %></h3>
+    <h3>Team: <%= @draft.team.name %></h3>
+    <br />
+    <div class='line-break'></div>
+    <br />
+    <h3>Undrafted Players</h3>
+    <div class='filter-position'>
+      <span class='label label-primary filter-label'>Filter</span>
+      <select class='select-list' id='position-list'>
+        <option value='blank'></option>
+        <% @positions.each do |position| %>
+          <option value=<%=position.position%>><%= position.position %></option>
+        <% end %>
+      </select>
+    </div>
+    <table class='undrafted-table'>
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @undrafted_players.each do |undrafted_player| %>
+        <tr>
+          <td><%= undrafted_player.name %></td>
+          <td><%= undrafted_player.position %></td>
+        </tr>
+      <% end %>
+    <br />
+  </div>
+</div>

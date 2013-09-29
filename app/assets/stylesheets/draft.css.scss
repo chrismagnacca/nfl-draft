@@ -2,16 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table.draft-table {
+table.draft-table, table.undrafted-table {
   width: 100%;
 }
 
-table.draft-table th {
+table.draft-table th, table.undrafted-table th {
   text-align: center;
   font-size: 1.25em;
   line-height: 1.75em;
 }
 
-table.draft-table tbody {
+table.draft-table tbody, table.undrafted-table tbody {
   border-top: 1px solid #8C8C8C;
+}
+
+select.select-list {
+  width: 10em;
+}
+
+span.filter-label {
+  font-size: 1.05em;
 }
