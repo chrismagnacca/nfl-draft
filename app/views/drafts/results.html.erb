@@ -6,6 +6,7 @@
       <thead>
         <tr>
           <th>Team Name</th>
+          <th>Player Name</th>
           <th>Pick</th>
           <th>Draft Round</th>
         </tr>
@@ -14,9 +15,12 @@
       <tbody>
       <% @results.each do |result| %>
         <tr>
-          <td><%= result.team.name %></td>
-          <td><%= result.pick %></td>
-          <td><%= result.round %></td>
+          <% if not result.player.nil? %>
+            <td><%= result.team.name %></td>
+            <td><%= result.player.name %></td>
+            <td><%= result.pick %></td>
+            <td><%= result.round %></td>
+          <% end %>
         </tr>
       <% end %>
       </tbody>

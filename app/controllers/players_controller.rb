@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.all
+    @players = Player.all.order('drafted DESC')
     @draft = Draft.current
     @drafted = Draft.drafted
     @draft_over = Draft.end_of_draft?

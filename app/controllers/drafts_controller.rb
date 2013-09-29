@@ -18,6 +18,7 @@ class DraftsController < ApplicationController
   end
 
   def results
+    @draft_over = Draft.end_of_draft?
     @results = Draft.results
   end
 
