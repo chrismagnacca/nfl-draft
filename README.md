@@ -26,6 +26,13 @@ This application requires the following:
 
 ## Rake Tasks
 
+* create the database and run the migrations
+
+```ruby
+rake db:create
+rake db:migrate
+```
+
 * run the command below to load the 3 CSV files into the database
 
 ```ruby
