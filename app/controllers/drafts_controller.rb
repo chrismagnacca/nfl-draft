@@ -22,19 +22,25 @@ class DraftsController < ApplicationController
   end
 
   def acquire
-    player = Player.where(id: params[:id])
-
+    player = Player.where(id: params[:id]).first
     if player.drafted
       flash[:alert] = 'whoops! looks like that player has been drafted'
       redirect_to draft_path(Draft.current)
+      return
     end
 
     Draft.current.team.acquire(player)
     Draft.current.update_attributes(player_id: player.id)
     flash[:notice] = 'player was successfully drafted!'
 
-    redirect_to root_path if Draft.end_of_draft
-    redirect_to draft_path(Draft.current)
+    if Draft.end_of_draft?
+      redirect_to root_path
+      return
+    else
+      redirect_to draft_path(Draft.current)
+      return
+    end
+
   end
 
   private

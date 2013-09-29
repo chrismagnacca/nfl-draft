@@ -57,5 +57,5 @@ NflDraft::Application.routes.draw do
   #     resources :products
   #   end
 
-  match '/drafts/acquire/:id', to: 'drafts#acquire', via: [:get, :post]
+  match '/drafts/acquire/:id', to: 'drafts#acquire', via: [:get, :post], as: 'acquire'
 end

@@ -33,7 +33,7 @@
         <tr>
           <td><%= undrafted_player.name %></td>
           <td><%= undrafted_player.position %></td>
-          <td><%= link_to 'Acquire',{controller: 'drafts', action: 'acquire'}, class: 'btn btn-default' %><th>
+          <td><%= link_to 'Acquire', acquire_path(undrafted_player.id), class: 'btn btn-default' %></td>
         </tr>
       <% end %>
     <br />
