@@ -1,0 +1,19 @@
+    <table class='undrafted-table'>
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Position</th>
+          <th>Draft Player<th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @undrafted_players.each do |undrafted_player| %>
+        <tr>
+          <td><%= undrafted_player.name %></td>
+          <td><%= undrafted_player.position %></td>
+          <td><%= link_to 'Acquire', acquire_path(undrafted_player.id), class: 'btn btn-default' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>

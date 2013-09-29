@@ -8,36 +8,25 @@
     <h3>Pick: <%= @draft.pick %></h3>
     <h3>Team: <%= @draft.team.name %></h3>
     <br />
-    <div class='line-break'></div>
     <br />
     <h3>Undrafted Players</h3>
     <div class='filter-position'>
       <span class='label label-primary filter-label'>Filter</span>
       <select class='select-list' id='position-list'>
-        <option value='blank'></option>
+        <option value='all'>All</option>
         <% @positions.each do |position| %>
-          <option value=<%=position.position%>><%= position.position %></option>
+          <option value=<%= position.position%>><%= position.position %></option>
         <% end %>
       </select>
     </div>
-    <table class='undrafted-table'>
-      <thead>
-        <tr>
-          <th>Player Name</th>
-          <th>Position</th>
-          <th>Draft Player<th>
-        </tr>
-      </thead>
+    <br />
 
-      <tbody>
-      <% @undrafted_players.each do |undrafted_player| %>
-        <tr>
-          <td><%= undrafted_player.name %></td>
-          <td><%= undrafted_player.position %></td>
-          <td><%= link_to 'Acquire', acquire_path(undrafted_player.id), class: 'btn btn-default' %></td>
-        </tr>
-      <% end %>
-      <br />
+    <!-- undrafted partial -->
+    <div id='undrafted-players'>
+      <%= render 'shared/undrafted_players', undrafted_players: @undrafted_players %>
+    </div>
+
+    <br />
     <% else %>
       <h1>The Draft is Over!</h1>
     <% end %>

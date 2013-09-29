@@ -45,6 +45,6 @@ class DraftsController < ApplicationController
   private
 
   def draft_params
-    params.require(:draft).permit(:id, :team_id, :player_id, :round, :pick, :executed) if params[:draft]
+    params.require(:draft).permit(:id, :team_id, :player_id, :round, :pick, :executed, :player) if params[:draft]
   end
 end
