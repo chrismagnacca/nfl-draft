@@ -21,7 +21,7 @@ class DraftsController < ApplicationController
     @results = Draft.results
   end
 
-  def draft
+  def acquire
     player = Player.where(id: params[:id])
 
     if player.drafted

@@ -24,6 +24,7 @@
         <tr>
           <th>Player Name</th>
           <th>Position</th>
+          <th>Draft Player<th>
         </tr>
       </thead>
 
@@ -32,6 +33,7 @@
         <tr>
           <td><%= undrafted_player.name %></td>
           <td><%= undrafted_player.position %></td>
+          <td><%= link_to 'Acquire',{controller: 'drafts', action: 'acquire'}, class: 'btn btn-default' %><th>
         </tr>
       <% end %>
     <br />

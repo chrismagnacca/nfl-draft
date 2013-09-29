@@ -1,12 +1,12 @@
 NflDraft::Application.routes.draw do
-  resources :players
   resources :drafts
+  resources :players
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'drafts#drafts'
+  root 'drafts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -42,7 +42,7 @@ NflDraft::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -56,4 +56,6 @@ NflDraft::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match '/drafts/acquire/:id', to: 'drafts#acquire', via: [:get, :post]
 end
