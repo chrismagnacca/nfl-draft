@@ -1,6 +1,11 @@
 NflDraft::Application.routes.draw do
-  resources :drafts
   resources :players
+
+  get 'drafts/index' => 'drafts#index'
+  get 'drafts/show/:id' => 'drafts#show'
+  get 'drafts/results' => 'drafts#results'
+  get 'drafts/acquire' => 'drafts#aquire'
+   resources :drafts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

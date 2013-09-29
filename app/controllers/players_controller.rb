@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
+    @players = Player.all
     @draft = Draft.current
     @drafted = Draft.drafted
     @draft_over = Draft.end_of_draft?

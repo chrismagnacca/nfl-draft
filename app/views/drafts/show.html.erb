@@ -1,5 +1,6 @@
 <div class="row-fluid">
   <div class="span12 div-center text-center width-restrained">
+    <% if @draft %>
     <h1>Draft</h1>
     <br />
     <div class='line-break'></div>
@@ -36,6 +37,9 @@
           <td><%= link_to 'Acquire', acquire_path(undrafted_player.id), class: 'btn btn-default' %></td>
         </tr>
       <% end %>
-    <br />
+      <br />
+    <% else %>
+      <h1>The Draft is Over!</h1>
+    <% end %>
   </div>
 </div>

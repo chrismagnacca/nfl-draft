@@ -11,7 +11,7 @@ class Draft < ActiveRecord::Base
   end
 
   def self.next
-    Draft.where(pick: Draft.current.pick + 1).first
+    Draft.where(pick: Draft.current.pick + 1).first if not end_of_draft?
   end
 
   def self.previous
@@ -21,7 +21,7 @@ class Draft < ActiveRecord::Base
   end
 
   def self.drafted
-    Draft.where(executed: true)[0...3]
+    Draft.where(executed: true).order('id DESC')[0...3]
   end
 
   def self.results
@@ -29,7 +29,7 @@ class Draft < ActiveRecord::Base
   end
 
   def self.end_of_draft?
-    (Draft.current.pick == 255)
+    return true if (Draft.current.nil?) || (Draft.current.pick == 255)
   end
 
 end

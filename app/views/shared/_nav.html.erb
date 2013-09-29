@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav"`>
       <!-- left side links -->
-      <li><a href="/drafts/results">Draft Results</a></li>
+      <li><%= link_to 'Draft Results', { controller: :drafts, action: :results }, method: :get %></li>
       <li><a href="/players/">Players</a></li>
     </ul>
 

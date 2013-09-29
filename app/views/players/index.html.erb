@@ -1,2 +1,29 @@
-<h1>Player#index</h1>
-<p>Find me in app/views/player/index.html.erb</p>
+<div class="row-fluid">
+  <div class="span12 div-center text-center width-restrained">
+    <h1>Players</h1>
+    <br />
+    <table class='players-table'>
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Position</th>
+          <th>Drafted?</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @players.each do |player| %>
+        <tr>
+          <td><%= player.name %></td>
+          <td><%= player.position %></td>
+          <td><%= player.drafted %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br />
+  </div>
+</div>
+
+
+

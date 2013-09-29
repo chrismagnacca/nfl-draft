@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span12 div-center text-center width-restrained">
-    <% if not @draft_over %>
+    <% if not @draft_over and @draft %>
     <h1>NFL Draft</h1>
     <br />
     <div class='line-break'></div>
@@ -8,16 +8,29 @@
     <h3>Pick Number: <%= @draft.pick  %></h3>
     <br />
     <% if not @drafted.empty? %>
-    <div class='line-break'></div>
-    <h3>Previous Picks</h3>
-      <%= @drafted.each do |draft| %>
-        <h4><%= draft.team.name %></h4>
-        <h4><%= draft.player.name %> </h4>
-        <h4><%= draft.player.position %></h4>
-      <% end %>
+      <br />
+      <h3>Previous Picks</h3>
+      <table class='previous-table'>
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Player Name</th>
+            <th>Position</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @drafted.each do |draft| %>
+          <tr>
+            <td><%= draft.team.name %></td>
+            <td><%= draft.player.name %></td>
+            <td><%= draft.player.position %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     <% end %>
     <br />
-    <div class='line-break'></div>
     <h3>Upcoming Pick</h3>
     <h4><%= @next.team.name %></h4>
     <br />
@@ -25,7 +38,7 @@
     <%= button_to "Start Draft", draft_path(@draft), class: 'btn btn-primary', method: :get %>
   </div>
   <% else %>
-    <h3>The Draft is Over!</h3>
+    <h2>The Draft is Over!</h2>
   <% end %>
   </div>
 </div>

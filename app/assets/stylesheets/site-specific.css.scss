@@ -24,6 +24,17 @@ a.sign-in-link:hover, a.sign-in-link:focus {
     text-decoration: underline;
 }
 
+.alert-error {
+  background: #FF4C4C;
+}
+.alert-notice {
+  background: #468847;
+}
+
+.alert-alert {
+  background: #FEFBED;
+}
+
 .text-center {
   text-align: center;
 }
