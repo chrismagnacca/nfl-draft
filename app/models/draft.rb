@@ -2,10 +2,6 @@ class Draft < ActiveRecord::Base
   has_one :team
   has_one :player
 
-  def results
-    Draft.where(executed: true)
-  end
-
   def team
     Team.where(id: self.team_id).first
   end

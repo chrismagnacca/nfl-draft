@@ -30,7 +30,6 @@ class DraftsController < ApplicationController
     end
 
     Draft.current.team.acquire(player)
-    Draft.current.update_attributes(player_id: player.id, executed: true)
     flash[:notice] = 'player was successfully drafted!'
 
     if Draft.end_of_draft?

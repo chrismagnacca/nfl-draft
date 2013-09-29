@@ -5,8 +5,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'simplecov'
 SimpleCov.start
 
-require 'coveralls'
-Coveralls.wear!
+#require 'coveralls'
+#Coveralls.wear!
 
 require File.expand_path("../../config/environment", __FILE__)
 
@@ -53,14 +53,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # Use DatabaseCleaner to clean up prior to running tests
-  config.before :suite do
-    DatabaseCleaner.strategy = :deletion
-    DatabaseCleaner.start
-  end
-
-  # Clean up the database following a test suite run
-  config.after :suite do
-    DatabaseCleaner.clean
-  end
 end
